@@ -18,6 +18,8 @@ return new class extends Migration
             $table->float('weight')->nullable();
             $table->enum('size', ['SMALL', 'MEDIUM', 'LARGE', 'EXTRA_LARGE']);
             $table->timestamps();
+
+            $table->foreign('specie_id')->references('id')->on('species');
         });
     }
 
