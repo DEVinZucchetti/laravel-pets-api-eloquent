@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\RaceController;
 use App\Http\Controllers\PeoplesController;
+use App\Http\Controllers\ProfessionalsController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('peoples', PeoplesController::class)->only(
@@ -14,7 +15,9 @@ Route::resource('pets', PetController::class)->only(
   ['index', 'show', 'store', 'update', 'destroy']
 );
 
-
+Route::resource('professionals', ProfessionalsController::class)->only([
+  'index', 'show', 'store', 'update', 'destroy'
+]);
 
 Route::prefix('races')->group(function () {
   Route::get('', [RaceController::class, 'index']);
